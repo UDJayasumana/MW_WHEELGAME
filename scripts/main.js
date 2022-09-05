@@ -30,7 +30,7 @@ function createLevelStyle()
                                         width: 430px;
                                         height: 430px;
                                         align-content: center;
-                                        background-image: url('./ui/InnerWheel_WithTexts.png');
+                                        background-image: url('./ui/InnerWheel_WithTextsT.png');
                                         transform:rotate(0deg);}`;
 
         cssRules += `.arrow{
