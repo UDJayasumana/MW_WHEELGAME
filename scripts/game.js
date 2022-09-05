@@ -35,40 +35,85 @@ function SpinWheel()
     //For Testing
     resetGame();
 
+
+    const DB_VALUE = "100MB";
+
+    let resultRotation = 0; 
+
+    switch(DB_VALUE)
+    {
+        case "TRY_AGAIN":
+            resultRotation = GetRandom_TryAgain_Rotations();
+            break;
+
+        case "100MB":
+            resultRotation = GetRandom_100MB_Rotations();
+            break;
+
+        case "50MB":
+            resultRotation = GetRandom_50MB_Rotations();
+            break;
+    }
+
+
     gsap.fromTo('.innerWheel',{rotation: 0, ease: 'power4.in'},
-                 {duration: 4, rotation: GetRandomTryAgainRotations(), ease: 'power4.out'});
+                 {duration: 4, rotation: resultRotation, ease: 'power4.out'});
 
+    setTimeout(ShowResult, 4500, DB_VALUE);
 
-    //Red Try-Again values
-    //Min : 2814
-    //Max : 2856
+}
 
-    //Yellow Try-Again values
-    //Min : 2904
-    //Max : 2946
-
-    //Blue Try-Again values
-    //Min : 2994
-    //Max : 3036
-
-    //Green Try-Again values
-    //Min : 3084
-    //Max : 3126
+function ShowResult(result)
+{
+    if(result == "TRY_AGAIN")
+    {
+        alert("Please Try-Again you didn't win any data package");
+    }
+    else
+    {
+        alert(`Congratulations you won ${result} data bundle`);
+    }
 }
 
 
-function GetRandomTryAgainRotations()
+function GetRandom_TryAgain_Rotations()
 {
 
-    const TryAgain_1 = new randomRot(2814, 2856);
-    const TryAgain_2 = new randomRot(2904, 2946);
-    const TryAgain_3 = new randomRot(2994, 3036);
-    const TryAgain_4 = new randomRot(3084, 3126);
+    const TRYAGAIN_1 = new randomRot(2814, 2856);
+    const TRYAGAIN_2 = new randomRot(2904, 2946);
+    const TRYAGAIN_3 = new randomRot(2994, 3036);
+    const TRYAGAIN_4 = new randomRot(3084, 3126);
 
-    let tryAgainSlots = new Array(TryAgain_1, TryAgain_2, TryAgain_3, TryAgain_4);
-    let randomTryAgainSlot = getRandomInt(0, tryAgainSlots.length);
+    let slots = new Array(TRYAGAIN_1, TRYAGAIN_2, TRYAGAIN_3, TRYAGAIN_4);
+    let randomSlot = getRandomInt(0, slots.length);
 
-    return tryAgainSlots[randomTryAgainSlot].GetRandomRotation();
+    return slots[randomSlot].GetRandomRotation();
+
+}
+
+function GetRandom_100MB_Rotations()
+{
+
+    const D100MB_1 = new randomRot(2769, 2811);
+    const D100MB_2 = new randomRot(2949, 2991);
+
+    let slots = new Array(D100MB_1, D100MB_2);
+    let randomSlot = getRandomInt(0, slots.length);
+
+    return slots[randomSlot].GetRandomRotation();
+
+}
+
+function GetRandom_50MB_Rotations()
+{
+
+    const D50MB_1 = new randomRot(2679, 2721);
+    const D50MB_2 = new randomRot(2859, 2901);
+
+    let slots = new Array(D50MB_1, D50MB_2);
+    let randomSlot = getRandomInt(0, slots.length);
+
+    return slots[randomSlot].GetRandomRotation();
 
 }
 
