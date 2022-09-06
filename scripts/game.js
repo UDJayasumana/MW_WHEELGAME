@@ -17,6 +17,8 @@ spinBtn.onclick = function(){
     //Comment for testing
     //setTimeout(resetGame, 5000);
 
+    GetPredefineSlot();
+
 }
 
 //Define for reset the inner wheel rotation
@@ -36,7 +38,7 @@ function SpinWheel()
     resetGame();
 
 
-    const DB_VALUE = "100MB";
+    const DB_VALUE = "TRY_AGAIN";
 
     let resultRotation = 0; 
 
@@ -135,6 +137,30 @@ class randomRot{
     GetRandomRotation()
     {
         return getRandomInt(this.minRot, this.maxRot);
+    }
+}
+
+
+function GetPredefineSlot()
+{
+    let request = new XMLHttpRequest();
+    request.open("GET", "https://randomuser.me/api/");
+    request.send();
+
+    request.onload = () => {
+        if(request.status === 200)
+        {
+            console.log(JSON.parse(request.response));
+
+            const res = JSON.parse(request.response);
+
+            console.log(res.results[0].name.first);
+            
+        }
+        else
+        {
+            console.log(`error Status : ${request.status} /n ${request.statusText}`);
+        }
     }
 }
 

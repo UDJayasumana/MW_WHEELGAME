@@ -75,21 +75,36 @@ function createGameLevel()
     innerWheelDiv.className = "innerWheel";
     wheelDiv.appendChild(innerWheelDiv);
 
+
+    //Create 'arrowContDiv' div to hold the wheel arrow
+    const arrowContDiv = document.createElement("div");
+    arrowContDiv.className = "arrowContDiv";
+    body.append(arrowContDiv);
+
     //Create 'arrow' div for the arrow element
-    //And add into the body
+    //And add into the arrowContDiv
     const arrowDiv = document.createElement("div");
     arrowDiv.className = "arrow";
-    body.appendChild(arrowDiv);
+    arrowContDiv.appendChild(arrowDiv);
+
+
+    const spinBtnContDiv = document.createElement("div");
+    spinBtnContDiv.className = "spinBtnContDiv";
+    body.append(spinBtnContDiv);
 
     //Create 'spinButton' button for the spinButton element
     //And add into the body
     const spinBtn = document.createElement("button");
+    spinBtn.className = "spinBtn";
     spinBtn.id = "spinButton";
-    body.append(spinBtn);
+    spinBtn.innerHTML = "Spin";
+    spinBtnContDiv.append(spinBtn);
+
+    
     
 }
 
 
-createLevelStyle();
+// createLevelStyle();
 createGameLevel();
 

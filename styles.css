@@ -1,0 +1,76 @@
+
+.wheel{
+    margin: auto;
+    width: 506px;
+    height: 506px;
+    display:flex;
+    align-content: center;
+    background-image: url('./ui/OuterWheel.png');
+    margin-top: 5%;
+}
+
+.wheel .innerWheel{
+    margin: auto;
+    width: 430px;
+    height: 430px;
+    align-content: center;
+    background-image: url('./ui/InnerWheel_WithTextsT.png');
+    transform:rotate(0deg);
+}
+
+.arrowContDiv{
+    margin: auto;
+    width: 506px;
+    height: 506px;
+    display:flex;
+    align-content: center;
+}
+
+.arrowContDiv .arrow{
+    position: relative;
+    margin: auto;
+    width: 172px;
+    height: 200px;
+    align-content: center;
+    background-image: url('./ui/Arrow.png');
+    margin-top: -560px;
+}
+
+.spinBtnContDiv{
+    margin: auto;
+    width: 506px;
+    height: 506px;
+    display:flex;
+    align-content: center;
+}
+
+.spinBtnContDiv .spinBtn{
+
+    display: block;
+    padding: 12px 40px;
+    gap: 10px;
+
+    position: relative;
+    width: 238px;
+    height: 80px;
+    left: calc(50% - 238px/2);
+    top: -80%;
+
+    background: #EF005A;
+    border-radius: 40px;
+    margin-top: 5%;
+    cursor: pointer;
+
+    /* font-family: 'Open Sans'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 16px;
+
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #FFFF;
+
+}
