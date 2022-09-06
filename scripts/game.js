@@ -1,7 +1,7 @@
 //Get actual rotatable wheel element from the document
 let innerWheel = document.querySelector(".wheel .innerWheel");
 //Get Spin Button element from the document
-let spinBtn = document.getElementById("spinButton");
+let spinBtn = document.querySelector(".wheel .spinButton");
 
 //Define for control the Spin
 let isSpin = false;
@@ -22,6 +22,7 @@ spinBtn.onclick = function(){
 }
 
 //Define for reset the inner wheel rotation
+//Reset Not work without animation
 function resetGame()
 {
     innerWheel.style.transform = "rotate(" + 0 + "deg)";
@@ -58,8 +59,8 @@ function SpinWheel()
     }
 
 
-    gsap.fromTo('.innerWheel',{rotation: 0, ease: 'power4.in'},
-                 {duration: 4, rotation: resultRotation, ease: 'power4.out'});
+    gsap.fromTo('.innerWheel',{rotation: 0, translate: '-50% -50%', ease: 'power4.in'},
+                 {duration: 4, rotation: resultRotation, translate: '-50% -50%', ease: 'power4.out'});
 
     setTimeout(ShowResult, 4500, DB_VALUE);
 
@@ -163,5 +164,4 @@ function GetPredefineSlot()
         }
     }
 }
-
 

@@ -1,67 +1,50 @@
 
 .wheel{
     margin: auto;
+    position: relative;
     width: 506px;
     height: 506px;
-    display:flex;
-    align-content: center;
     background-image: url('./ui/OuterWheel.png');
-    margin-top: 5%;
+    margin-top: 8em;
+    scale: 1;
 }
 
 .wheel .innerWheel{
-    margin: auto;
+    position: absolute; 
+    top: 50%;
+	left: 50%; 
+    transform: translate(-50%, -50%);
     width: 430px;
     height: 430px;
-    align-content: center;
-    background-image: url('./ui/InnerWheel_WithTextsT.png');
-    transform:rotate(0deg);
+    background-image: url('./ui/InnerWheel_WithTextsT.png');   
 }
 
-.arrowContDiv{
-    margin: auto;
-    width: 506px;
-    height: 506px;
-    display:flex;
-    align-content: center;
-}
-
-.arrowContDiv .arrow{
-    position: relative;
-    margin: auto;
+.wheel .arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 172px;
     height: 200px;
-    align-content: center;
     background-image: url('./ui/Arrow.png');
-    margin-top: -560px;
+    margin-top: -42%;
 }
 
-.spinBtnContDiv{
-    margin: auto;
-    width: 506px;
-    height: 506px;
-    display:flex;
-    align-content: center;
-}
-
-.spinBtnContDiv .spinBtn{
-
+.wheel .spinButton{
+    position: absolute;
     display: block;
-    padding: 12px 40px;
-    gap: 10px;
-
-    position: relative;
     width: 238px;
     height: 80px;
-    left: calc(50% - 238px/2);
-    top: -80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     background: #EF005A;
     border-radius: 40px;
-    margin-top: 5%;
+    margin-top: 70%;
     cursor: pointer;
 
-    /* font-family: 'Open Sans'; */
+    font-family:sans-serif; 
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -72,5 +55,50 @@
     text-transform: uppercase;
 
     color: #FFFF;
+
+}
+
+.wheel .gameTitle{
+    position: absolute;
+    width: 220px;
+    height: 27px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -65%;
+
+    font-family:sans-serif; 
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 16px;
+
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: black
+
+}
+
+.wheel .tryAgainMsg{
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 60%;
+
+    font-family:sans-serif; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
 }
