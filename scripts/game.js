@@ -1,3 +1,4 @@
+let container = document.getElementById("mainContainer");
 //Get actual rotatable wheel element from the document
 let innerWheel = document.querySelector(".wheel .innerWheel");
 //Get Spin Button element from the document
@@ -38,7 +39,7 @@ function SpinWheel()
     //For Testing
     resetGame();
 
-
+    
     const DB_VALUE = "TRY_AGAIN";
 
     let resultRotation = 0; 
@@ -128,6 +129,8 @@ function getRandomInt(min, max)
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
 class randomRot{
     constructor(minRot, maxRot)
     {
@@ -164,4 +167,21 @@ function GetPredefineSlot()
         }
     }
 }
+
+function onWindowResize()
+{
+    var percentageOn1 = window.innerWidth / 540;
+    var percentageOn2 = window.innerHeight / 960;
+
+    var average = (percentageOn1 + percentageOn2) / 2;
+
+    average = clamp(percentageOn2, 0, 1);
+    container.style.scale = average;
+
+}
+
+window.onresize = onWindowResize;
+
+ 
+
 

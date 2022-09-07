@@ -1,12 +1,21 @@
+.container{
+    margin: auto;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #EF005A; */
+}
 
 .wheel{
     margin: auto;
-    position: relative;
+    position: absolute;
+    top: 50%;
+	left: 50%; 
+    transform: translate(-50%, -50%);
     width: 506px;
     height: 506px;
     background-image: url('./ui/OuterWheel.png');
-    margin-top: 8em;
-    scale: 1;
+    margin-top: -10vh;
 }
 
 .wheel .innerWheel{
@@ -55,29 +64,6 @@
     text-transform: uppercase;
 
     color: #FFFF;
-
-}
-
-.wheel .gameTitle{
-    position: absolute;
-    width: 220px;
-    height: 27px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -65%;
-
-    font-family:sans-serif; 
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 16px;
-
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    color: black
 
 }
 

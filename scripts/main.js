@@ -65,9 +65,17 @@ function createGameLevel()
 
     //Create 'wheelDiv' div to hold all contents of the wheel
     const BODY = document.body;
+
+    const PARENT_DIV = document.createElement("div");
+    PARENT_DIV.className = "container";
+    PARENT_DIV.id = "mainContainer";
+    BODY.append(PARENT_DIV);
+
+
     const WHEEL_DIV = document.createElement("div");
     WHEEL_DIV.className = "wheel";
-    BODY.append(WHEEL_DIV);
+    WHEEL_DIV.id = "mainWheel"
+    PARENT_DIV.append(WHEEL_DIV);
 
     //Create 'innerWheelDiv' div for the inner rotatable wheel
     //And add into the 'wheelDiv'
@@ -88,12 +96,7 @@ function createGameLevel()
     SPIN_BUTTON.innerHTML = "Spin";
     WHEEL_DIV.append(SPIN_BUTTON);
 
-    //Create 'gameTitle' text for the game title element
-    //And add into the 'wheelDiv'
-    const GAME_TITLE = document.createElement("text");
-    GAME_TITLE.className = "gameTitle";
-    GAME_TITLE.innerHTML = "Spin & Win";
-    WHEEL_DIV.append(GAME_TITLE);
+  
 
     //Create 'tryAgainMsg' text for the Try Again Message
     //And add into the 'wheelDiv'
