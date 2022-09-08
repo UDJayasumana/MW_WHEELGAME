@@ -17,43 +17,98 @@ function createLevelStyle()
     var style = document.createElement("style");
     style.appendChild(document.createTextNode(""));
 
-    var cssRules = `.wheel{
+    var cssRules = `.container{
+                                position: relative;
+                                width: 100vw;
+                                height: 100vh;
+                                margin-top: 0%;
+                                margin-left: -50%;
+                                }`;
+
+        cssRules += `.wheel{
                             margin: auto;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%; 
+                            transform: translate(0%, -50%);
                             width: 506px;
                             height: 506px;
-                            display:flex;
-                            align-content: center;
-                            background-image: url('./ui/OuterWheel.png');}`;
+                            background-image: url('./ui/OuterWheel.png');
+                            margin-top: -10vh;
+                            }`;
 
         cssRules += `.wheel .innerWheel{
-                                        margin: auto;
+                                        position: absolute; 
+                                        top: 50%;
+                                        left: 50%; 
+                                        transform: translate(-50%, -50%);
                                         width: 430px;
                                         height: 430px;
-                                        align-content: center;
-                                        background-image: url('./ui/InnerWheel_WithTextsT.png');
-                                        transform:rotate(0deg);}`;
+                                        background-image: url('./ui/InnerWheel_WithTextsT.png');   
+                                        }`;
 
-        cssRules += `.arrow{
-                            position: relative;
-                            display: block;
-                            margin: auto;
-                            width: 172px;
-                            height: 200px;
-                            align-content: center;
-                            background-image: url('./ui/Arrow.png');
-                            margin-top: -560px;}`;
+        cssRules += `.wheel .arrow{
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 172px;
+                                    height: 200px;
+                                    background-image: url('./ui/Arrow.png');
+                                    margin-top: -42%;
+                                    }`;
 
-        cssRules += `#spinButton{
-                                margin: auto;
-                                width: 238px;
-                                height: 80px;
-                                display: flex;
-                                align-content: center;
-                                margin-top: 30em;
-                                border: none;
-                                background-color: rgba(0, 0, 0, 0);
-                                background-image: url('./ui/SpinButton.png');
-                                cursor: pointer;}`;
+        cssRules += `.wheel .spinButton{
+                                        position: absolute;
+                                        display: block;
+                                        width: 238px;
+                                        height: 80px;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+        
+                                        background: #EF005A;
+                                        border-radius: 40px;
+                                        margin-top: 70%;
+                                        cursor: pointer;
+        
+                                        font-family:sans-serif; 
+                                        font-style: normal;
+                                        font-weight: 700;
+                                        font-size: 36px;
+                                        line-height: 16px;
+        
+                                        text-align: center;
+                                        letter-spacing: 2px;
+                                        text-transform: uppercase;
+        
+                                        color: #FFFF;
+        
+                                        }`;
+
+        cssRules += `.wheel .tryAgainMsg{
+                                         display: none;
+                                         position: absolute;
+                                         width: 300px;
+                                         height: 50px;
+                                         top: 50%;
+                                         left: 50%;
+                                         transform: translate(-50%, -50%);
+                                         margin-top: 60%;
+        
+                                         font-family:sans-serif; 
+                                         font-style: normal;
+                                         font-weight: 400;
+                                         font-size: 14px;
+                                         line-height: 20px;
+        
+                                         text-align: center;
+                                         letter-spacing: 2px;
+                                         text-transform: uppercase;
+        
+                                        }`;
+
+     
     
      style.appendChild(document.createTextNode(cssRules));   
      document.head.appendChild(style);
@@ -109,6 +164,6 @@ function createGameLevel()
 }
 
 
-// createLevelStyle();
+ createLevelStyle();
 createGameLevel();
 

@@ -1,8 +1,11 @@
 .container{
-    margin: auto;
+    /* margin: auto; */
     position: relative;
     width: 100vw;
     height: 100vh;
+    margin-top: 0%;
+    margin-left: -50%;
+   
     /* background-color: #EF005A; */
 }
 
@@ -11,7 +14,7 @@
     position: absolute;
     top: 50%;
 	left: 50%; 
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
     width: 506px;
     height: 506px;
     background-image: url('./ui/OuterWheel.png');

@@ -170,14 +170,28 @@ function GetPredefineSlot()
 
 function onWindowResize()
 {
-    var percentageOn1 = window.innerWidth / 540;
-    var percentageOn2 = window.innerHeight / 960;
+    // var percentageOn1 =   540 / window.outerWidth;
+    var percentageOn2 = window.outerHeight / 960;
 
-    var average = (percentageOn1 + percentageOn2) / 2;
+   
+    scaleToHeight = clamp(percentageOn2, 0, 1);
 
-    average = clamp(percentageOn2, 0, 1);
-    container.style.scale = average;
 
+    container.style.scale = scaleToHeight;
+
+
+}
+
+function getHeight(length, ratio) 
+{
+    var height = ((length)/(Math.sqrt((Math.pow(ratio, 2)+1))));
+    return Math.round(height);
+}
+
+function getWidth(length, ratio) 
+{
+    var width = ((length)/(Math.sqrt((1)/(Math.pow(ratio, 2)+1))));
+    return Math.round(width);
 }
 
 window.onresize = onWindowResize;
