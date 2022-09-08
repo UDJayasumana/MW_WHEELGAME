@@ -44,7 +44,7 @@ function createLevelStyle()
                                         transform: translate(-50%, -50%);
                                         width: 430px;
                                         height: 430px;
-                                        background-image: url('./ui/InnerWheel_WithTextsT.png');   
+                                        background-image: url('./ui/InnerWheel_WithTextsV2.png');   
                                         }`;
 
         cssRules += `.wheel .arrow{
@@ -148,7 +148,15 @@ function createGameLevel()
     //And add into the 'wheelDiv'
     const SPIN_BUTTON = document.createElement("button");
     SPIN_BUTTON.className = "spinButton";
-    SPIN_BUTTON.innerHTML = "Spin";
+
+    const SPIN_BUTTON_TXT = document.createElement("p");
+    SPIN_BUTTON_TXT.className = "spintText";
+    SPIN_BUTTON_TXT.innerText = "Spin";
+    
+    
+    SPIN_BUTTON.appendChild(SPIN_BUTTON_TXT);
+
+    //SPIN_BUTTON.innerHTML = "Spin";
     WHEEL_DIV.append(SPIN_BUTTON);
 
   
@@ -164,6 +172,6 @@ function createGameLevel()
 }
 
 
- createLevelStyle();
+createLevelStyle();
 createGameLevel();
 

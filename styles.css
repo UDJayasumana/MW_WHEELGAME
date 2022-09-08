@@ -28,7 +28,7 @@
     transform: translate(-50%, -50%);
     width: 430px;
     height: 430px;
-    background-image: url('./ui/InnerWheel_WithTextsT.png');   
+    background-image: url('./ui/InnerWheel_WithTextsV2.png');   
 }
 
 .wheel .arrow{
@@ -60,15 +60,15 @@
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
-    line-height: 16px;
+    line-height: 25%;
 
     text-align: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-
     color: #FFFF;
 
 }
+
 
 .wheel .tryAgainMsg{
     display: none;

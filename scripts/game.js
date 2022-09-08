@@ -4,6 +4,10 @@ let innerWheel = document.querySelector(".wheel .innerWheel");
 //Get Spin Button element from the document
 let spinBtn = document.querySelector(".wheel .spinButton");
 
+let spinBtnText = document.querySelector(".wheel .spinButton .spintText");
+
+let tryAgainMsg = document.querySelector(".wheel .tryAgainMsg");
+
 //Define for control the Spin
 let isSpin = false;
 
@@ -13,31 +17,44 @@ spinBtn.onclick = function(){
     if(isSpin)
        return;
 
-    // isSpin = true;
+    isSpin = true;
     SpinWheel();
+    DisableSpinButton();
     //Comment for testing
     //setTimeout(resetGame, 5000);
 
-    GetPredefineSlot();
+}
 
+function DisableSpinButton()
+{
+    spinBtn.style.background = 'gray';
+    spinBtnText.style.color = 'gainsboro';
+}
+
+function EnableSpinButton()
+{
+    spinBtn.style.background = '#EF005A';
+    spinBtnText.style.color = '#FFFF';
 }
 
 //Define for reset the inner wheel rotation
 //Reset Not work without animation
-function resetGame()
+function resetWheel()
 {
     innerWheel.style.transform = "rotate(" + 0 + "deg)";
-    isSpin = false;
 }
 
 //Define for handle the wheel rotation
 function SpinWheel()
 {
-    // gsap.fromTo('.innerWheel',{rotation: 0, ease: 'power4.in'},
-    //             {duration: 4, rotation: getRandomInt(1800, 2800), ease: 'power4.out'});
 
-    //For Testing
-    resetGame();
+    resetWheel();
+
+    if(spinBtn.innerHTML == "Spin Again")
+    {
+        spinBtn.style.top = '50%';
+        tryAgainMsg.style.display = 'none';
+    }
 
     
     const DB_VALUE = "TRY_AGAIN";
@@ -50,8 +67,8 @@ function SpinWheel()
             resultRotation = GetRandom_TryAgain_Rotations();
             break;
 
-        case "100MB":
-            resultRotation = GetRandom_100MB_Rotations();
+        case "1GB":
+            resultRotation = GetRandom_1GB_Rotations();
             break;
 
         case "50MB":
@@ -71,12 +88,23 @@ function ShowResult(result)
 {
     if(result == "TRY_AGAIN")
     {
-        alert("Please Try-Again you didn't win any data package");
+        SwitchSpinButton();
+        EnableSpinButton();
     }
     else
     {
-        alert(`Congratulations you won ${result} data bundle`);
+        SendWinnerInfo();
     }
+}
+
+function SwitchSpinButton()
+{
+    spinBtn.innerHTML = "Spin Again";
+    spinBtn.style.width = '330px';
+    spinBtn.style.top = '58%';
+    tryAgainMsg.style.display = 'block';
+
+    isSpin = false
 }
 
 
@@ -95,7 +123,7 @@ function GetRandom_TryAgain_Rotations()
 
 }
 
-function GetRandom_100MB_Rotations()
+function GetRandom_1GB_Rotations()
 {
 
     const D100MB_1 = new randomRot(2769, 2811);
@@ -144,8 +172,8 @@ class randomRot{
     }
 }
 
-
-function GetPredefineSlot()
+//Do a Test API call
+function SendWinnerInfo()
 {
     let request = new XMLHttpRequest();
     request.open("GET", "https://randomuser.me/api/");
@@ -168,30 +196,12 @@ function GetPredefineSlot()
     }
 }
 
+//Handle window Resize
 function onWindowResize()
 {
-    // var percentageOn1 =   540 / window.outerWidth;
     var percentageOn2 = window.outerHeight / 960;
-
-   
     scaleToHeight = clamp(percentageOn2, 0, 1);
-
-
     container.style.scale = scaleToHeight;
-
-
-}
-
-function getHeight(length, ratio) 
-{
-    var height = ((length)/(Math.sqrt((Math.pow(ratio, 2)+1))));
-    return Math.round(height);
-}
-
-function getWidth(length, ratio) 
-{
-    var width = ((length)/(Math.sqrt((1)/(Math.pow(ratio, 2)+1))));
-    return Math.round(width);
 }
 
 window.onresize = onWindowResize;
