@@ -5,11 +5,20 @@ gsapLib.type = 'text/javascript';
 gsapLib.src = './scripts/gsap.min.js';
 document.getElementsByTagName('head')[0].appendChild(gsapLib);
 
+// Add Events
+let events = document.createElement('script');
+events.type = 'text/javascript';
+events.src = './scripts/event.js';
+document.getElementsByTagName('head')[0].appendChild(events);
+
 // Load Game JS which contains all the game logics
 let game = document.createElement('script');
 game.type = 'text/javascript';
 game.src = './scripts/game.js';
 document.getElementsByTagName('head')[0].appendChild(game);
+
+
+
 
 //Generate Style Sheet for the Game Level
 function createLevelStyle()

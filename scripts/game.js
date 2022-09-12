@@ -56,8 +56,10 @@ function SpinWheel()
         tryAgainMsg.style.display = 'none';
     }
 
+    let DB_Array = new Array("TRY_AGAIN", "1GB", "50MB");
+
     
-    const DB_VALUE = "TRY_AGAIN";
+    const DB_VALUE = DB_Array[getRandomInt(0, DB_Array.length)];//"TRY_AGAIN";
 
     let resultRotation = 0; 
 
@@ -93,7 +95,9 @@ function ShowResult(result)
     }
     else
     {
-        SendWinnerInfo();
+        //Call custom Event
+        SetGameLevelDisplayState('none');
+        //SendWinnerInfo();
     }
 }
 
